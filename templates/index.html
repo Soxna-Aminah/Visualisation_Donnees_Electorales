@@ -24,48 +24,64 @@
         <div class="nombrelect">
             {% for i in donne %}
             <div class="sdiv">
-                <img src="../static/img/bonhom.jpeg" alt="" srcset="">
-                <img src="../static/img/bonhom.jpeg" alt="" srcset="">
-                <img src="../static/img/bonhom.jpeg" alt="" srcset="">
+                <div class="personIcons">
+                    <div>
+                    {% for i in range(3) %}
+                        <img src="../static/img/bonhom.jpeg" alt="" srcset="">
+                    {% endfor %}
+                    </div>
+                </div>
                 <div class="donne">
                     <h3 >{{ i }}</h3>
-                    <p>{{ donne[i] }} electeurs</p>
+                    <p>{{ donne[i] }} Electeurs</p>
                 </div>
             </div>
             {% endfor %}
         </div>
+
+
+
         <div class="classement">
-            <div class="image">
-                <img src="../static/img/macky.jpeg" alt="" srcset="">
-                <img src="../static/img/idi.jpeg" alt="">
-                <img src="../static/img/sonko.jpeg" alt="">
-            </div>
-            <div class="titre">
-                <div class="macky">
+
+            <div class="candidatItem">
+                <div class="candidatImage"> 
+                    <img src="../static/img/macky.jpeg" alt="" srcset="">
+                </div>
+
+                <div class="divInfos">
                     <h3>Macky SALL</h3>
-                    <br>
-                    <p>Géologue</p>
-                    <br>
-                    <br>
-                    <h3>{{ dic['Macky Sall'] }}%</h3>
-                    <p>des Electeures</p>
-
+                    <p class="profession">Géologue</p>
+                    <h3 class="pourcentage">{{ dic['Macky Sall'] }}%</h3>
+                    <p>des Electeurs</p>
                 </div>
-                <div class="idy">
+            </div>
+
+            <div class="candidatItem">
+                <div class="candidatImage">
+                    <img src="../static/img/idi.jpeg" alt="">
+                </div>
+
+                <div class="divInfos">
                     <h3>Idrissa SECK</h3>
-                    <br>
-                    <p>Auditeur Consultant</p>
-                    <br>
-                    <h3>{{ dic['Idrissa Seck'] }}%</h3>
+                    <p class="profession">Auditeur Consultant</p>
+                    <h3 class="pourcentage">{{ dic['Idrissa Seck'] }}%</h3>
+                    <p>des Electeurs</p>
+                </div>
+            </div>
 
-                    <p>des Electeures</p>
+            <div class="candidatItem">
+                <div class="candidatImage">
+                    <img src="../static/img/sonko.jpeg" alt="">
                 </div>
-                <div class="sonko">
+
+                <div class="divInfos">
                     <h3>Ousmane SONKO </h3>
-                    <p>Inspecteur des impôts et domaines</p>
-                    <h3>{{ dic['Ousmane Sonko'] }}%</h3>
-                    <p>des Electeures</p>
+                    <p class="profession">Inspecteur des impôts et domaines</p>
+                    <h3 class="pourcentage">{{ dic['Ousmane Sonko'] }}%</h3>
+                    <p>des Electeurs</p>
                 </div>
+            </div>
+
         </div>
     </div>
    

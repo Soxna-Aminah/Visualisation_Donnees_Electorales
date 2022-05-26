@@ -1,6 +1,12 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
 body{
-    width: 99%;
-    height: 920px;
+    width: 100%;
+    height: 100vh;
+    background: #F9F9F9;
 }
 
 
@@ -57,9 +63,9 @@ main{
 
 }
 .nombrelect{
-    margin-top: 3%;
+    margin-top: 10px;
     width: 100%;
-    height: 25%;
+    /* height: 25%; */
 
 }
 .classement{  

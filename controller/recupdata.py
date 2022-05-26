@@ -1,15 +1,20 @@
 import csv
 import sys
-sys.path.append(".")
+
+
+
+
+# sys.path.append(".")
 sys.path.append("..")
 # sys.path.append("../model")
 from model.modele import *
+
+
 chemin1="./datas/DAKAR.csv"
 chemin2="./datas/KAOLACK.csv"
 chemin3="./datas/SAINT LOUIS.csv"
 chemin4="./datas/THIES.csv"
 chemin5="./datas/ZIGUINCHOR.csv"
-
 
 ##################################FONCTION DE LECTURE DES FICHIER CSV#########################
 
@@ -117,26 +122,5 @@ def chargeDonnees(data):
         chargerCom(data[reg])
         chargerLieu(data[reg])
 
+
 # chargeDonnees(data)
-############################################## 
-
-
-
-
-
-
-
-
-
-    
-
-
-# remplirRegion(data)
-# remplissageDepart(data)
-
-
-
-
-
-
-
