@@ -117,7 +117,11 @@ def chargeDonnees(data):
         chargerCom(data[reg])
         chargerLieu(data[reg])
 
-chargeDonnees(data)
+# chargeDonnees(data)
+############################################## 
+
+
+
 
 
 

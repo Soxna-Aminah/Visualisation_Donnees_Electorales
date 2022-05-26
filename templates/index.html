@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %} Traitement des Donnees Electerales{% endblock %}
+{% block head %}
+
+<script src="{{ url_for('static',filename='JS/app.js') }}"></script>
+<script src="{{ url_for('static',filename='JS/d3.min.js') }}"></script>
+
+
+{% endblock%}
+
+{% block content %}
+<main>
+    <div class="gauche">
+        <div class="regparcom"></div>
+        <div class="top10bureau"></div>
+    </div>
+    <div class="milieu">
+        <div class="carteSn"></div>
+        <div class="donnestatic"></div>
+    </div>
+    <div class="droite">
+        <div class="nombrelieu"></div>
+        <div class="nombrelect">
+            {% for i in donne %}
+            <div class="sdiv">
+                <img src="../static/img/bonhom.jpeg" alt="" srcset="">
+                <img src="../static/img/bonhom.jpeg" alt="" srcset="">
+                <img src="../static/img/bonhom.jpeg" alt="" srcset="">
+                <div class="donne">
+                    <h3 >{{ i }}</h3>
+                    <p>{{ donne[i] }} electeurs</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="classement">
+            <div class="image">
+                <img src="../static/img/macky.jpeg" alt="" srcset="">
+                <img src="../static/img/idi.jpeg" alt="">
+                <img src="../static/img/sonko.jpeg" alt="">
+            </div>
+            <div class="titre">
+                <div class="macky">
+                    <h3>Macky SALL</h3>
+                    <br>
+                    <p>Géologue</p>
+                    <br>
+                    <br>
+                    <h3>{{ dic['Macky Sall'] }}%</h3>
+                    <p>des Electeures</p>
+
+                </div>
+                <div class="idy">
+                    <h3>Idrissa SECK</h3>
+                    <br>
+                    <p>Auditeur Consultant</p>
+                    <br>
+                    <h3>{{ dic['Idrissa Seck'] }}%</h3>
+
+                    <p>des Electeures</p>
+                </div>
+                <div class="sonko">
+                    <h3>Ousmane SONKO </h3>
+                    <p>Inspecteur des impôts et domaines</p>
+                    <h3>{{ dic['Ousmane Sonko'] }}%</h3>
+                    <p>des Electeures</p>
+                </div>
+        </div>
+    </div>
+   
+</main>
+
+{% endblock %}

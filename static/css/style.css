@@ -1,0 +1,132 @@
+body{
+    width: 99%;
+    height: 920px;
+}
+
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.gauche{
+    height: 100%;
+    width: 28%
+}
+.milieu{
+    height: 100%;
+    width: 42%;
+    border: 2px solid black;
+}
+.droite{
+    height: 100%;
+    width: 26%;
+}
+ .regparcom{
+    width: 100%;
+    height: 50%;
+
+}
+
+.top10bureau{
+    width: 100%;
+    height: 49%;
+    border: 2px solid cadetblue;
+    background-color: salmon;
+
+} 
+.carteSn {
+    width: 100%;
+    height: 60%;
+    border: 2px solid cadetblue;
+    background-color: palegoldenrod;
+}
+.donnestatic{
+    width: 100%;
+    height: 39%;
+    border: 2px solid cadetblue;
+    background-color: purple;
+
+}
+
+.nombrelieu{
+    width: 100%;
+    height: 36%;
+
+
+}
+.nombrelect{
+    margin-top: 3%;
+    width: 100%;
+    height: 25%;
+
+}
+.classement{  
+    width: 100%;
+    height: 33%;
+
+}
+.bloc{
+    width: 40%;
+    height: 35%;
+}
+
+.sdiv{
+    display: flex;
+    align-items: center;
+}
+
+.donne h3{
+    font-size: 18px;
+    color: orangered;
+    margin: 0;
+    padding: 0;
+}
+.donne p{
+    color: grey;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+.sdiv img{
+    width: 5%;
+    height:5% ;
+    
+}
+
+.classement{
+    display: flex;
+    flex-direction: column;
+}
+.classement div{
+    margin: 0;
+    padding: 0;
+
+} 
+.classement img,.classement h3{
+    width: 100%;
+    margin: 3%;
+    text-align: center;
+}
+
+.classement p{
+    margin-top: 0;
+    padding: 0;
+    color: grey;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 4%;
+
+
+}
+.image,.titre{
+    display: flex;
+    justify-content: space-evenly;
+}
+.titre div{
+    width: 30%;
+}
+.sonko{
+    margin-top: 0;
+}
