@@ -79,7 +79,6 @@
     line-height: 20px;
     height: 30px;
     display: flex;
-    /* align-items: center; */
 }
 
 .candidatItem .divInfos p:not(.profession){
