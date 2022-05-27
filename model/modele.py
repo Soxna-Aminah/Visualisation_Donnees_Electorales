@@ -98,48 +98,5 @@ class Lieu_de_Vote(base):
 
 base.metadata.create_all(bind=engine)
 
-def RecupNbrCommune():
-    dic={}
- 
-    reg=session.query(Region).all()
-    for i in reg:
-        commune=0
-        depart=session.query(Departement).filter(Departement.regionId==i.id_region).all()
-        for k in depart:
-            com=session.query(Commune).filter(Commune.departId==k.id_depart).all()
-            commune+=len(com)
-        dic[i.name_region]=commune
-    return dic
-
-def BureauCom():
-    diccom={}
-    commune=session.query(Commune).all()
-    for i in commune:
-                lieuv=0
-                lieu=session.query(Lieu_de_Vote).filter(Lieu_de_Vote.communeId==i.id_commune).all()
-                lieuv+=len(lieu)
-                diccom[i.name_commune]=lieuv
-    ndicom={}
-    for k, v in sorted(diccom.items(), key=lambda x: x[1],reverse=True):
-        if len(ndicom) <10:
-              ndicom[k]=v
-    return ndicom
-
-def RecupElecteur():
-    dic={}
-    reg=session.query(Region.name_region,func.sum(Lieu_de_Vote.nombre_electeur)).filter(Region.id_region==Departement.regionId).filter(Departement.id_depart==Commune.departId).filter(Commune.id_commune==Lieu_de_Vote.communeId).group_by(Region.name_region).all()
-    for i in reg:
-       dic[i[0]]=i[1]
-    return dic
-
-def recupBureauVote():
-    diclieu={}
-    lieu=session.query(Lieu_de_Vote.name_lieu,Lieu_de_Vote.nombre_electeur).all()
-    lieu.sort(key = lambda x: x[1],reverse=True)   #index 1 means second element
-    for i in lieu:
-        if len(diclieu)<10:
-            diclieu[i[0]]=i[1]
-    return diclieu
 
 
-recupBureauVote()

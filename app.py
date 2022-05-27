@@ -17,12 +17,12 @@ def index():
 
 
 
-@app.route("/BureauCom")
+@app.route("/bureaucom")
 def data():
     data=BureauCom()
     return jsonify(data)
 
-@app.route("/NbrCommuneRegion")
+@app.route("/nbrcommuneregion")
 def datacom():
     data=RecupNbrCommune()
     return jsonify(data)
