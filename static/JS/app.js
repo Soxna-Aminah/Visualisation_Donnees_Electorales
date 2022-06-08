@@ -107,7 +107,7 @@ fetch('/bureaucom')
 
 
 
-const width = 500;
+const width = 480;
 const height = 460;
 const margin = { top: 40, bottom: 90, left: 20, right: 20 };
 
@@ -182,9 +182,9 @@ fetch('/datalieu')
      data.push({ lieu: i, Nbr:text[i]})
   }
 
-const width = 640;
+const width = 630;
 const height = 500;
-const margin = { top: 20, bottom: 20, left: 220, right: 10};
+const margin = { top: 50, bottom: 20, left: 200, right: 10};
 const innerWidth=width-margin.left-margin.right;
 const innerHeigh=height-margin.top-margin.bottom;
 
@@ -212,10 +212,15 @@ const render = data =>{
   const g=svg.append('g')
             .attr("transform",`translate(${margin.left},${margin.top})`)
 
-  g.append('g').call(d3.axisLeft(yScale));
+  g.append('g').call(d3.axisLeft(yScale))
+                .selectAll("text")
+                .style('font-size',"10px")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", "rotate(30)");
   g.append('g').call(d3.axisBottom(xScale))
             .attr("transform",`translate(0,${innerHeigh})`)
-
  
   g.selectAll("rect")
     .data(data) 
@@ -233,3 +238,6 @@ render(data)
 
 
     })
+
+
+   ///////////////////////////////Carte Sénégal//////////////////////////////////

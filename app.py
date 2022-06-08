@@ -8,9 +8,9 @@ app=Flask(__name__)
 @app.route("/")
 def index():
     dic={
-        "Macky Sall": 58.27,
-        "Idrissa Seck":20.5,
-        "Ousmane Sonko": 15.67
+        "Macky Sall": 58,
+        "Idrissa Seck":20,
+        "Ousmane Sonko": 15
     }
     donne=RecupElecteur()
     return render_template('index.html',donne=donne,dic=dic)
