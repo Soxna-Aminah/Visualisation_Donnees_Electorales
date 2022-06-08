@@ -1,4 +1,6 @@
-fetch('/NbrCommuneRegion')
+
+///////////////////////////Diagramme circulaire/////////////////////////////////////////
+fetch('/nbrcommuneregion')
     .then(function (reponse){
         return reponse.json()
     }).then(function (text) {
@@ -91,8 +93,8 @@ sections.enter().append("path").attr("d", segments)
 })
 
 
-
-fetch('/BureauCom')
+/////////////////////////////Diagramme en barre des nombres de bureau de votes top 10 communes //////////////////////////////////////////
+fetch('/bureaucom')
     .then(function (reponse){
         return reponse.json()
     }).then(function (text) {
@@ -105,7 +107,7 @@ fetch('/BureauCom')
 
 
 
-  const width = 500;
+const width = 500;
 const height = 460;
 const margin = { top: 40, bottom: 90, left: 20, right: 20 };
 
@@ -121,7 +123,7 @@ const svg = d3.select('.nombrelieu')
 const x = d3.scaleBand()
   .domain(d3.range(data.length))
   .range([margin.left, width - margin.right])
-  .padding(0.1)
+  .padding(0.3)
 
 const y = d3.scaleLinear()
   .domain([0, 50])
@@ -167,3 +169,67 @@ svg.node();
 
     })
 
+//////////////////////////////////// Diagramme en barr top10 lieu de votes///////////////////////////////////
+
+fetch('/datalieu')
+    .then(function (reponse){
+        return reponse.json()
+    }).then(function (text) {
+
+        var data=[]
+        
+  for(i in text){
+     data.push({ lieu: i, Nbr:text[i]})
+  }
+
+const width = 640;
+const height = 500;
+const margin = { top: 20, bottom: 20, left: 220, right: 10};
+const innerWidth=width-margin.left-margin.right;
+const innerHeigh=height-margin.top-margin.bottom;
+
+
+var couleur = d3.scaleOrdinal(["#B89E09","#FF7824"," #7315E6","#18F2BB","#7D2A19","#151D5C","#F6CD36","#6226E3","#FFFC40","#993487"]); 
+const svg = d3.select('.top10bureau')
+  .append('svg')
+  .attr('width', width )
+  .attr('height', height )
+
+const render = data =>{
+  
+
+  const xScale=d3.scaleLinear()
+        .domain([0,d3.max(data,d=>d.Nbr) ])
+        .range([0,innerWidth]);
+
+
+  const yScale=d3.scaleBand()
+            .domain(data.map(d=>d.lieu))
+            .range([0,innerHeigh])
+            .padding(0.3)
+
+
+  const g=svg.append('g')
+            .attr("transform",`translate(${margin.left},${margin.top})`)
+
+  g.append('g').call(d3.axisLeft(yScale));
+  g.append('g').call(d3.axisBottom(xScale))
+            .attr("transform",`translate(0,${innerHeigh})`)
+
+ 
+  g.selectAll("rect")
+    .data(data) 
+    .enter().append("rect")
+    .attr('y',d=>yScale(d.lieu))
+      .attr("width", d => xScale(d.Nbr))
+      .attr("height",d=> yScale.bandwidth())
+      .style("fill",couleur)
+      .selectAll('text')
+      .style("font-size",'10px')
+}
+render(data)
+
+
+
+
+    })

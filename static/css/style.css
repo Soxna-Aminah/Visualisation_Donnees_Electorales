@@ -18,12 +18,11 @@ main{
 }
 .gauche{
     height: 100%;
-    width: 28%
+    width: 34%
 }
 .milieu{
     height: 100%;
     width: 42%;
-    border: 2px solid black;
 }
 .droite{
     height: 100%;
@@ -31,29 +30,32 @@ main{
 }
  .regparcom{
     width: 100%;
-    height: 50%;
+    height: 48%;
 
 }
 
 .top10bureau{
     width: 100%;
     height: 49%;
-    border: 2px solid cadetblue;
-    background-color: salmon;
 
 } 
 .carteSn {
     width: 100%;
-    height: 60%;
+    height: 64%;
     border: 2px solid cadetblue;
     background-color: palegoldenrod;
 }
 .donnestatic{
     width: 100%;
-    height: 39%;
-    border: 2px solid cadetblue;
-    background-color: purple;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 
+}
+.titrestatic{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .nombrelieu{
@@ -63,7 +65,12 @@ main{
 
 }
 .nombrelect{
+<<<<<<< HEAD
     margin-top: 10px;
+=======
+    margin-left: 2%;
+    margin-top: 3%;
+>>>>>>> master
     width: 100%;
     /* height: 25%; */
 
@@ -82,6 +89,7 @@ main{
     display: flex;
     align-items: center;
 }
+
 
 .donne h3{
     font-size: 18px;
