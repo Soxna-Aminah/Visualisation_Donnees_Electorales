@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- (c) ammap.com | SVG map of Senegal - Low -->
+
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 	<defs>
 		<style type="text/css">
@@ -16,7 +16,7 @@
 		<amcharts:ammap projection="mercator" leftLongitude="-17.531313" topLatitude="16.691273" rightLongitude="-11.341837" bottomLatitude="12.307237"></amcharts:ammap>
 
 		<!-- All areas are listed in the line below. You can use this list in your script. -->
-		<!--{id:"SN-DK"},{id:"SN-DB"},{id:"SN-FK"},{id:"SN-KE"},{id:"SN-KA"},{id:"SN-KL"},{id:"SN-KD"},{id:"SN-LG"},{id:"SN-MT"},{id:"SN-SE"},{id:"SN-SL"},{id:"SN-TC"},{id:"SN-TH"},{id:"SN-ZG"}-->
+		<!-- {id:"SN-DK"},{id:"SN-DB"},{id:"SN-FK"},{id:"SN-KE"},{id:"SN-KA"},{id:"SN-KL"},{id:"SN-KD"},{id:"SN-LG"},{id:"SN-MT"},{id:"SN-SE"},{id:"SN-SL"},{id:"SN-TC"},{id:"SN-TH"},{id:"SN-ZG"} -->
 
 	</defs>
 	<g>

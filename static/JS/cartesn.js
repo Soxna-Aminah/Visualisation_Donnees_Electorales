@@ -1,26 +1,22 @@
-
-const width=900;
-const height=600;
-
-const svg=d3.select('.carteSn').append('svg')
-                     .attr('width', width)
-                     .attr('height',height );
-
-const g=svg.append('g');
-
-const projection=d3.geoMercator();
-
-const path=d3.geoPath(projection)
+let uses = document.querySelectorAll(".carteSn .use")
+let carteSn = document.querySelector(".carteSn")
 
 
-d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-    .then(data => {
-        const countries=topojson.features(data,data.object.countries);
+for(let use of uses){
 
-        g.selectAll('path').data(countries.features).enter()
-                            .append('path')
-                            .attr('class','country')
-                            .attr('d',path)
+    let div = document.createElement('div')
+    let p = document.createElement('p')
 
+    div.setAttribute('class', 'divInfos')
 
-    });
+    use.addEventListener("mouseenter", (e) => {
+
+        p.innerText = 'mafé'
+
+        div.append(p)
+        carteSn.prepend(div)
+
+    })
+    
+    
+}
