@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+
+
+/* ******************************** */
+/* ********* DIV REGIONS ********* */
+/* ****************************** */
+
+.divRegionInf{
+    background: rgba(1, 158, 48, 0.8);
+    color: #fff;
+    width: 55%;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.divRegionInf h2{
+    margin: 0;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.divRegionInf p{
+    font-size: 18px;
+    margin-bottom: 10px;
+
+}
+
+.divRegionInf p.departement{
+    line-height: 30px;
+}
+
+.divRegionInf p strong{
+    font-size: 20px;
+}
+
+.carteSn svg path.land.use{
+     fill: rgba(1, 158, 48, 0.8);
+     transition: all ease .3s;
+     cursor: pointer;
+}
+
+.carteSn svg path.land.use:hover{
+    fill: rgb(24, 130, 56);
+}
+
+
+
+/* ******************************** */
+/* ********* DIV STATS *********** */
+/* ****************************** */
+.donnestatic{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.donnestatic .titrestatic{
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.donnestatic .titrestatic .statItem{
+    margin-bottom: 20px;
+}
+
+.donnestatic .titrestatic #barreItem{
+    width: 5px;
+    height: 70px;
+    background: rgba(1, 158, 48, 0.8);
+    border-radius: 4px;
+    border: none;
+    /* padding: 10px; */
+}
+
+.donnestatic .titrestatic .statItem h3{
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.donnestatic .titrestatic .statItem p{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+
+.donnestatic p{
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+}
+
+.donnestatic p.pAnalyse{
+    font-size: 20px;
+}
