@@ -229,9 +229,10 @@ const render = data =>{
       .attr("width", d => xScale(d.Nbr))
       .attr("height",d=> yScale.bandwidth())
       .style("fill",couleur)
-      .selectAll('text')
-      .style("font-size",'10px')
-}
+  g.selectAll("text")
+  .data(data)
+  .enter().append("text")
+    }
 render(data)
 
 

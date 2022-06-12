@@ -1,5 +1,7 @@
+from ast import IsNot
 import csv
 import sys
+from tkinter import N
 sys.path.append(".")
 sys.path.append("..")
 # sys.path.append("../model")
@@ -132,6 +134,7 @@ def RecupNbrCommune():
             com=session.query(Commune).filter(Commune.departId==k.id_depart).all()
             commune+=len(com)
         dic[i.name_region]=commune
+        print(dic)
     return dic
 
 def BureauCom():
@@ -153,8 +156,9 @@ def RecupElecteur():
     reg=session.query(Region.name_region,func.sum(Lieu_de_Vote.nombre_electeur)).filter(Region.id_region==Departement.regionId).filter(Departement.id_depart==Commune.departId).filter(Commune.id_commune==Lieu_de_Vote.communeId).group_by(Region.name_region).all()
     for i in reg:
        dic[i[0]]=i[1]
+    print(dic)   
     return dic
-
+RecupElecteur()
 def recupBureauVote():
     diclieu={}
     lieu=session.query(Lieu_de_Vote.name_lieu,Lieu_de_Vote.nombre_electeur).all()
@@ -164,8 +168,23 @@ def recupBureauVote():
             diclieu[i[0]]=i[1]
     return diclieu
 
+def recupinforeg():
+    dic={}
+    lireg=[]
+    regions=session.query(Region.name_region,Departement.name_depart).filter(Region.id_region==Departement.regionId).all()
+    for i in regions:
+        if i[0] not in lireg:
+            lireg.append(i[0])
+    for j in lireg:
+        lidp=[]
+        for k in regions:
+            if j==k[0]:
+                lidp.append(k[1])
+                # print(lidp)
+        dic[j]=lidp
+    return dic
 
-
+recupinforeg()
 
 
 
