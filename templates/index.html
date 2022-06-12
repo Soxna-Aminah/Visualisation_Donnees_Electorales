@@ -14,6 +14,18 @@
     </div>
     <div class="milieu">
         <div class="carteSn">
+
+            <div class="divRegionInf">
+                <h2>Dakar</h2>
+                <p class="departement">
+                    <strong class="label-strong">Departement :</strong>
+                    {% for dep in ["Dakar","Pikine", "Guediawaye", "Rufisque"]%}
+                    <span>{{dep}},</span>
+                    {% endfor %}
+                </p>
+                <p>52 <strong class="label-strong">communes</strong></p>
+                <p>2000000 <strong class="label-strong">Electeurs</strong></p>
+            </div>
             
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                 <g>
@@ -36,10 +48,18 @@
         </div>
         <div class="donnestatic">
             <div class="titrestatic">
-                <h3>Électeurs 2017</h3>
-                <h3>Électeurs 2019</h3>
+                <div class="statItem">
+                    <h3>Électeurs 2017</h3>
+                    <p>1620208</p>
+                </div>
+                <span id="barreItem"></span>
+                <div class="statItem">
+                    <h3>Électeurs 2019</h3>
+                    <p>1620208</p>
+                </div>
             </div>
-            <p>
+
+            <p class="pAnalyse">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.Lorem Ipsum has been the industry's standard dummy text 
                 ever since the 1500s,when an unknown printer took a galley of type and

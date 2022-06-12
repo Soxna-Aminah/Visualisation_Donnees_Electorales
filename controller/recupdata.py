@@ -5,7 +5,9 @@ from tkinter import N
 sys.path.append(".")
 sys.path.append("..")
 # sys.path.append("../model")
+
 from model.modele import *
+
 chemin1="./datas/DAKAR.csv"
 chemin2="./datas/KAOLACK.csv"
 chemin3="./datas/SAINT LOUIS.csv"
@@ -125,7 +127,6 @@ def chargeDonnees(data):
 
 def RecupNbrCommune():
     dic={}
- 
     reg=session.query(Region).all()
     for i in reg:
         commune=0

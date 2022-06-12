@@ -2,21 +2,21 @@ let uses = document.querySelectorAll(".carteSn .use")
 let carteSn = document.querySelector(".carteSn")
 
 
-for(let use of uses){
+// for(let use of uses){
 
-    let div = document.createElement('div')
-    let p = document.createElement('p')
+//     let div = document.createElement('div')
+//     let p = document.createElement('p')
 
-    div.setAttribute('class', 'divInfos')
+//     div.setAttribute('class', 'divInfos')
 
-    use.addEventListener("mouseenter", (e) => {
+//     use.addEventListener("mouseenter", (e) => {
 
-        p.innerText = 'mafé'
+//         p.innerText = 'mafé'
 
-        div.append(p)
-        carteSn.prepend(div)
+//         div.append(p)
+//         carteSn.prepend(div)
 
-    })
+//     })
     
     
-}
+// }
