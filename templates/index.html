@@ -4,6 +4,8 @@
 {% block head %}
 
 
+
+
 {% endblock%}
 
 {% block content %}
@@ -14,19 +16,19 @@
     </div>
     <div class="milieu">
         <div class="carteSn">
-
+            {% for i in elem %}
             <div class="divRegionInf">
-                <h2>Dakar</h2>
+                <h2>{{i.region}}</h2>
                 <p class="departement">
                     <strong class="label-strong">Departement :</strong>
-                    {% for dep in ["Dakar","Pikine", "Guediawaye", "Rufisque"]%}
+                    {% for dep in i.departement %}
                     <span>{{dep}},</span>
                     {% endfor %}
                 </p>
-                <p>52 <strong class="label-strong">communes</strong></p>
-                <p>2000000 <strong class="label-strong">Electeurs</strong></p>
+                <p>{{i.commune}} <strong class="label-strong">communes</strong></p>
+                <p>{{i.electeur}} <strong class="label-strong">Electeurs</strong></p>
             </div>
-            
+            {% endfor %}
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                 <g>
                     <path id="SN-DK" title="Dakar" class="land use" d="M37.765,531.05l0.498,0.462l0.396,4.828l1.902,4.375l0.765,4.366l1.203,0.642l0.198,1.3l-0.174,1.208l-2.41,1.292l0.325,1.066l-0.493,2.504l1.133,0.989l-0.707,4.654l0.673,1.922l-1.87,1.126l0,0l-1.386,-2.947l-3.44,-4.147l-6.909,-4.872l-1.647,-0.146l-7.838,-2.911l-5.31,0.591l-1.543,1.509l0.134,0.958l1.133,0.164l0.068,0.57l-0.754,0.65l0.376,1.291l-0.79,-0.704l-0.334,0.253l-0.027,0.563l1.179,0.647l-1.069,1.017l-0.219,1.885l-1.426,-2.569l-1.069,-0.191l-0.137,-0.506l-1.015,0.45l0.097,-1.048l-0.837,-0.811l0.384,-0.508l-1.398,-0.93l-0.274,-0.845l-1.234,-0.366l-1.206,-1.943l-1.48,-0.282l0.384,-1.183l0.676,0.366l1.078,-0.732l1.299,0.05l1.415,-1.205l1.042,0.451l2.775,-0.535l9.863,-3.862L37.765,531.05z"/>

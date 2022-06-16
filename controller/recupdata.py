@@ -1,4 +1,3 @@
-from ast import IsNot
 import csv
 import sys
 from tkinter import N
@@ -135,7 +134,6 @@ def RecupNbrCommune():
             com=session.query(Commune).filter(Commune.departId==k.id_depart).all()
             commune+=len(com)
         dic[i.name_region]=commune
-        print(dic)
     return dic
 
 def BureauCom():
@@ -157,7 +155,7 @@ def RecupElecteur():
     reg=session.query(Region.name_region,func.sum(Lieu_de_Vote.nombre_electeur)).filter(Region.id_region==Departement.regionId).filter(Departement.id_depart==Commune.departId).filter(Commune.id_commune==Lieu_de_Vote.communeId).group_by(Region.name_region).all()
     for i in reg:
        dic[i[0]]=i[1]
-    print(dic)   
+    # print(dic)   
     return dic
 RecupElecteur()
 def recupBureauVote():
@@ -170,9 +168,10 @@ def recupBureauVote():
     return diclieu
 
 def recupinforeg():
-    dic={}
+    nrdic={}
     lireg=[]
     regions=session.query(Region.name_region,Departement.name_depart).filter(Region.id_region==Departement.regionId).all()
+
     for i in regions:
         if i[0] not in lireg:
             lireg.append(i[0])
@@ -182,10 +181,28 @@ def recupinforeg():
             if j==k[0]:
                 lidp.append(k[1])
                 # print(lidp)
-        dic[j]=lidp
-    return dic
+        nrdic[j]=lidp
+    return nrdic
 
-recupinforeg()
+def recupdepartcomel():
+    liregdep=recupinforeg()
+    licom=RecupNbrCommune()
+    liel=RecupElecteur()
+    region=[]
+    for i in liregdep:
+    #    region.append(i)
+       dic={
+            "region":i,
+            "departement":liregdep[i],
+            "commune":licom[i],
+            "electeur":liel[i]
+
+        }
+       region.append(dic)
+    print(region)
+    return region
+recupdepartcomel()
+    
 
 
 

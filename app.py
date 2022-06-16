@@ -13,7 +13,9 @@ def index():
         "Ousmane Sonko": 15
     }
     donne=RecupElecteur()
-    return render_template('index.html',donne=donne,dic=dic)
+    elem=recupdepartcomel()
+    print(elem)
+    return render_template('index.html',donne=donne,dic=dic,elem=elem)
 
 
 
