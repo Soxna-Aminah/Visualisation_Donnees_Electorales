@@ -1,86 +1,144 @@
 import csv
+from operator import indexOf
 import sys
+import os
+
 sys.path.append(".")
 sys.path.append("..")
 # sys.path.append("../model")
 
 from model.modele import *
 
-chemin1 = "./datas/DAKAR.csv"
-chemin2 = "./datas/KAOLACK.csv"
-chemin3 = "./datas/SAINT LOUIS.csv"
-chemin4 = "./datas/THIES.csv"
-chemin5 = "./datas/ZIGUINCHOR.csv"
+# chemin1 = "./datas/DAKAR.csv"
+# chemin2 = "./datas/KAOLACK.csv"
+# chemin3 = "./datas/SAINT LOUIS.csv"
+# chemin4 = "./datas/THIES.csv"
+# chemin5 = "./datas/ZIGUINCHOR.csv"
+
+def reader_files(pathname):
+    
+    tabRegions = []
+    tabDepartement = []
+    tabCommunes = []
+    tabLieu = []
+
+    for (root, dirs, file) in os.walk(pathname):
+    
+        for f in file:
+
+            
+            tabRegions.append(f.split('.')[0])
+
+            data = []
+
+            with open(f'{pathname}/{f}', "r") as file:
+                
+                myreader=csv.DictReader(file)
+
+                for row in myreader:
+                  
+                    if row['DÉPARTEMENT'] not in tabDepartement:
+
+                        tabDepartement.append(row['DÉPARTEMENT'])
+                    
+                    else:
+
+                        if row['COMMUNES'] not in  tabCommunes:
+
+                            tabCommunes.append(row['COMMUNES'])
+                        
+                        else:
+
+                            if row['LIEU DE VOTE'] not in  tabLieu:
+    
+                                tabLieu.append(row['LIEU DE VOTE'])
+
+                            else:
+
+                                data.append(row)
+
+                
+            
+
+                # break
+        print("\nRegion",f)
+        print(tabLieu,"\n")
+        print(tabCommunes,"\n")
+        print(tabDepartement,"\n")
+        print(tabRegions)
+
+
+reader_files('./../datas')
 
 
 ##################################FONCTION DE LECTURE DES FICHIER CSV#########################
 
-def lecteurcsv(chemin):
+# def lecteurcsv(chemin):
     
-    data = []
+#     data = []
 
-    with open(chemin) as f:
+#     with open(chemin) as f:
         
-        myreader=csv.DictReader(f)
+#         myreader=csv.DictReader(f)
 
-        for row in myreader:
+#         for row in myreader:
             
-            data.append(row)
+#             data.append(row)
         
-        return data
+#         return data
 
 
 ################################RECUPERATION DES FICHIERE SUR DES LISTES DE DICTIONNAIRE###########################################
-liDakar = lecteurcsv(chemin1)
-liKaolack = lecteurcsv(chemin2)
-liSaint_Louis = lecteurcsv(chemin3)
-liThies = lecteurcsv(chemin4)
-liZig = lecteurcsv(chemin5)
+# liDakar = lecteurcsv(chemin1)
+# liKaolack = lecteurcsv(chemin2)
+# liSaint_Louis = lecteurcsv(chemin3)
+# liThies = lecteurcsv(chemin4)
+# liZig = lecteurcsv(chemin5)
 
 
 ###################Fonction de traitement###############################
 
-def traitementdata(li):
-    n = 0
-    nli = []
+# def traitementdata(li):
+#     n = 0
+#     nli = []
     
-    for i in range(len(li)):
+#     for i in range(len(li)):
         
-        if i == 0:
-            n += int(li[i]["ÉLECTEURS"])
-            l = li[i]["LIEU DE VOTE"]
+#         if i == 0:
+#             n += int(li[i]["ÉLECTEURS"])
+#             l = li[i]["LIEU DE VOTE"]
         
-        else:
+#         else:
             
-            if li[i]["LIEU DE VOTE"]==l:
-                n+=int(li[i]["ÉLECTEURS"])
+#             if li[i]["LIEU DE VOTE"]==l:
+#                 n+=int(li[i]["ÉLECTEURS"])
             
-            else:
-                ndict={}
-                ndict["Departement"]=li[i-1]["DÉPARTEMENT"]
-                ndict["Commune"]=li[i-1]["COMMUNES"]
-                ndict["Lieu de Vote"]=li[i-1]["LIEU DE VOTE"]
-                ndict["Nombre electeur"]=n
-                nli.append(ndict)
-                n=0
-                l=li[i]["LIEU DE VOTE"]
-                n+=int(li[i]["ÉLECTEURS"])
+#             else:
+#                 ndict={}
+#                 ndict["Departement"]=li[i-1]["DÉPARTEMENT"]
+#                 ndict["Commune"]=li[i-1]["COMMUNES"]
+#                 ndict["Lieu de Vote"]=li[i-1]["LIEU DE VOTE"]
+#                 ndict["Nombre electeur"]=n
+#                 nli.append(ndict)
+#                 n=0
+#                 l=li[i]["LIEU DE VOTE"]
+#                 n+=int(li[i]["ÉLECTEURS"])
 
-    return nli
+#     return nli
                 
 
 
 ################Les donnees pretes à etre inserer dans la base###################################
 
 
-nliDakar=traitementdata(liDakar)
+# nliDakar=traitementdata(liDakar)
 # print(nliDakar[0].keys())
 
-nliKaolack=traitementdata(liKaolack)
-nliSaint_Louis=traitementdata(liSaint_Louis)
-nliThies=traitementdata(liThies)
-nliZig=traitementdata(liZig)
-data= {"DAKAR":nliDakar,"KAOLACK":nliKaolack,"SAINT LOUIS":nliSaint_Louis,"THIES":nliThies,"ZIGUINCHOR":nliZig}
+# nliKaolack=traitementdata(liKaolack)
+# nliSaint_Louis=traitementdata(liSaint_Louis)
+# nliThies=traitementdata(liThies)
+# nliZig=traitementdata(liZig)
+# data= {"DAKAR":nliDakar,"KAOLACK":nliKaolack,"SAINT LOUIS":nliSaint_Louis,"THIES":nliThies,"ZIGUINCHOR":nliZig}
 
 
 ###################### Remplissage ###########################################################

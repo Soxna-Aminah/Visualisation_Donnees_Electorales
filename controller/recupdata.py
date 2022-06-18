@@ -6,44 +6,58 @@ sys.path.append("..")
 
 from model.modele import *
 
-chemin1="./datas/DAKAR.csv"
-chemin2="./datas/KAOLACK.csv"
-chemin3="./datas/SAINT LOUIS.csv"
-chemin4="./datas/THIES.csv"
-chemin5="./datas/ZIGUINCHOR.csv"
+chemin1 = "./datas/DAKAR.csv"
+chemin2 = "./datas/KAOLACK.csv"
+chemin3 = "./datas/SAINT LOUIS.csv"
+chemin4 = "./datas/THIES.csv"
+chemin5 = "./datas/ZIGUINCHOR.csv"
+
+
+
 
 
 ##################################FONCTION DE LECTURE DES FICHIER CSV#########################
 
 def lecteurcsv(chemin):
-    li=[]
-    f=open(chemin)
-    myreader=csv.DictReader(f)
-    for row in myreader:
-        li.append(row)
-    return li
+    
+    data = []
+
+    with open(chemin) as f:
+        
+        myreader=csv.DictReader(f)
+
+        for row in myreader:
+            
+            data.append(row)
+        
+        return data
 
 
 ################################RECUPERATION DES FICHIERE SUR DES LISTES DE DICTIONNAIRE###########################################
-liDakar=lecteurcsv(chemin1)
-liKaolack=lecteurcsv(chemin2)
-liSaint_Louis=lecteurcsv(chemin3)
-liThies=lecteurcsv(chemin4)
-liZig=lecteurcsv(chemin5)
+liDakar = lecteurcsv(chemin1)
+liKaolack = lecteurcsv(chemin2)
+liSaint_Louis = lecteurcsv(chemin3)
+liThies = lecteurcsv(chemin4)
+liZig = lecteurcsv(chemin5)
 
 
 ###################Fonction de traitement###############################
 
 def traitementdata(li):
-    n=0
-    nli=[]
+    n = 0
+    nli = []
+    
     for i in range(len(li)):
-        if i==0:
-            n+=int(li[i]["ÉLECTEURS"])
-            l=li[i]["LIEU DE VOTE"]
+        
+        if i == 0:
+            n += int(li[i]["ÉLECTEURS"])
+            l = li[i]["LIEU DE VOTE"]
+        
         else:
+            
             if li[i]["LIEU DE VOTE"]==l:
                 n+=int(li[i]["ÉLECTEURS"])
+            
             else:
                 ndict={}
                 ndict["Departement"]=li[i-1]["DÉPARTEMENT"]
@@ -156,7 +170,8 @@ def RecupElecteur():
        dic[i[0]]=i[1]
     # print(dic)   
     return dic
-RecupElecteur()
+
+# RecupElecteur()
 
 def recupBureauVote():
     diclieu={}
