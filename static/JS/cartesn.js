@@ -23,21 +23,18 @@ for(let use of uses){
 
     use.addEventListener("mouseenter", async(e) => {
         e.stopPropagation()
-
-        divRegionInf.style.visibility = 'visible'
-
-
+        
         let element = e.target
         let elementTitle = element.getAttribute('title')
-
+        
         let response = await fetch('/api/info')
         let data = await response.json()
+
+        divRegionInf.style.visibility = 'visible'
 
         data = data.filter(region => region.region === elementTitle)
 
         generate_content(data[0])
-
-        
     })
     
     use.addEventListener('mouseout', ()=>{

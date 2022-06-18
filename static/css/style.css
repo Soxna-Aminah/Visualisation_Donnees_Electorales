@@ -123,7 +123,8 @@ main{
 }
 
 .carteSn svg g{
-    transform: translate(0px,-25%);
+    transform: translate(0px,-50%);
+    /* transform: translate(0px,-25%); */
  }
  
 

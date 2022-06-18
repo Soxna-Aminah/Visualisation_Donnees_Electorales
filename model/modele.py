@@ -10,27 +10,27 @@ sys.path.append("..")
 
 ########################Engine########################
 
-engine=create_engine('postgresql://challenge:passer123@localhost:5432/donnees_elections')
-base_session=sessionmaker(bind=engine,autocommit=False,autoflush=False)
-session=base_session()
-base=declarative_base()
+engine = create_engine('postgresql://challenge:passer123@localhost:5432/donnees_elections')
+base_session = sessionmaker(bind = engine, autocommit = False, autoflush = False)
+session = base_session()
+base = declarative_base()
 
 
 ######################Classe Region############################
 class Region(base):
-    __tablename__='regions'
-    id_region=Column(Integer,primary_key=True,autoincrement=True)
-    name_region=Column(String(50))
-    departement=relationship("Departement")
+    __tablename__ = 'regions'
+    id_region = Column(Integer,primary_key=True,autoincrement=True)
+    name_region = Column(String(50))
+    departement = relationship("Departement")
 
 
-    def __init__(self,name_region):
-        self.name_region=name_region
+    def __init__(self, name_region):
+        self.name_region = name_region
 
     def remplirRegion(self):
-            session.add(self)
-            session.commit()
-            session.close()
+        session.add(self)
+        session.commit()
+        session.close()
         
 
 ######################Classe Departement############################
@@ -55,20 +55,20 @@ class Departement(base):
 ######################Classe Commune ############################
 
 class Commune(base):
-    __tablename__='commune'
-    id_commune=Column(Integer,primary_key=True,autoincrement=True)
-    departId=Column(Integer,ForeignKey('departement.id_depart'))
-    name_commune=Column(String(100))
-    lieu_de_vote=relationship('Lieu_de_Vote')
+    __tablename__ = 'commune'
+    id_commune = Column(Integer,primary_key=True,autoincrement=True)
+    departId = Column(Integer,ForeignKey('departement.id_depart'))
+    name_commune = Column(String(100))
+    lieu_de_vote = relationship('Lieu_de_Vote')
 
 
 
     def __init__(self,name_commune,name_depart):
-        self.name_commune=name_commune
-        self.name_depart=name_depart
+        self.name_commune = name_commune
+        self.name_depart = name_depart
 
     def remplissageCom(self):
-        self.departId=session.query(Departement).filter(Departement.name_depart==self.name_depart).first().id_depart
+        self.departId = session.query(Departement).filter(Departement.name_depart==self.name_depart).first().id_depart
         session.add(self)
         session.commit()
 
@@ -79,19 +79,20 @@ class Commune(base):
 ######################Classe Lieu de Vote ############################
 
 class Lieu_de_Vote(base):
-    __tablename__='lieu_de_vote'
-    id_lieu=Column(Integer,primary_key=True,autoincrement=True)
-    communeId=Column(Integer,ForeignKey('commune.id_commune'))
-    name_lieu=Column(String(100))
-    nombre_electeur=Column(Integer)
+    __tablename__ = 'lieu_de_vote'
+    id_lieu = Column(Integer,primary_key=True,autoincrement=True)
+    communeId = Column(Integer,ForeignKey('commune.id_commune'))
+    name_lieu = Column(String(100))
+    nombre_electeur = Column(Integer)
 
     def __init__(self, name_lieu,name_commune,nombre_electeur ):
-        self. name_lieu= name_lieu
-        self.name_commune=name_commune
-        self.nombre_electeur=nombre_electeur
+        self.name_lieu = name_lieu
+        self.name_commune = name_commune
+        self.nombre_electeur = nombre_electeur
+
 
     def RemplirLieu(self):
-        self.communeId=session.query(Commune).filter(Commune.name_commune==self.name_commune).first().id_commune
+        self.communeId = session.query(Commune).filter(Commune.name_commune==self.name_commune).first().id_commune
         session.add(self)
         session.commit()
 

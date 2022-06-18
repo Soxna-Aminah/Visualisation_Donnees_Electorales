@@ -8,14 +8,11 @@ app=Flask(__name__)
 
 @app.route("/")
 def index():
-    dic = {
-        "Macky Sall": 58,
-        "Idrissa Seck":20,
-        "Ousmane Sonko": 15
-    }
+    
+    dic = { "Macky Sall" : 58, "Idrissa Seck" : 20, "Ousmane Sonko" : 15}
+
     donne=RecupElecteur()
-    # elem=recupdepartcomel()
-    # print("************ Print mafé ***********",elem)
+
     return render_template('index.html',donne=donne,dic=dic)
 
 
@@ -45,13 +42,9 @@ def getter_info():
     return jsonify(results)
 
 
-
-
 @app.errorhandler(404)
 def page_not_found(error):
-    resp = make_response(render_template('error.html'), 404)
-    resp.headers['X-Something'] = 'Page indisponible'
-    return resp
+    return render_template('not_found.html'), 404
 
 
 

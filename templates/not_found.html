@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Traitement des Donnees Electerales{% endblock %}
+
+
+{% block content %}
+    <div class="container404">
+        
+        <div class="divMaps">
+            <img src="{{ url_for('static', filename='img/amoul.png') }}" alt="Image 404">
+        </div>
+
+        <div class="divInf">
+            <h1>Page introuvable</h1>
+            <p>Le contenu demandé n'existe pas.</p>
+            <a href="/">Retour au dashborad</a>
+        </div>
+
+    </div>
+
+{% endblock %}
