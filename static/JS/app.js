@@ -18,13 +18,11 @@ var svg = d3
   var data=[]
         
   for(i in text){
-    console.log(text)
      data.push({ Region: i, Nbr:text[i]})
   }
   var base_diagramme = d3.pie().value(function (d) {
     return d.Nbr;
   })(data);
-console.log(data);
 
 var segments = d3
   .arc()

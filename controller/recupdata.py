@@ -1,6 +1,5 @@
 import csv
 import sys
-from tkinter import N
 sys.path.append(".")
 sys.path.append("..")
 # sys.path.append("../model")
@@ -158,6 +157,7 @@ def RecupElecteur():
     # print(dic)   
     return dic
 RecupElecteur()
+
 def recupBureauVote():
     diclieu={}
     lieu=session.query(Lieu_de_Vote.name_lieu,Lieu_de_Vote.nombre_electeur).all()
@@ -185,28 +185,50 @@ def recupinforeg():
     return nrdic
 
 def recupdepartcomel():
-    liregdep=recupinforeg()
-    licom=RecupNbrCommune()
-    liel=RecupElecteur()
-    region=[]
+    liregdep = recupinforeg()
+    licom = RecupNbrCommune()
+    liel = RecupElecteur()
+    region = []
+
     for i in liregdep:
-    #    region.append(i)
-       dic={
+        dic={
             "region":i,
             "departement":liregdep[i],
             "commune":licom[i],
             "electeur":liel[i]
 
         }
-       region.append(dic)
+        print(dic)
+        region.append(dic)
     print(region)
+
     return region
-recupdepartcomel()
+
+# recupdepartcomel()
     
 
 
 
 
+def getter_info_controller():
+    liregdep = recupinforeg()
+    licom = RecupNbrCommune()
+    liel = RecupElecteur()
+    region = []
+
+    for i in liregdep:
+        dic={
+            "region":i,
+            "departement":liregdep[i],
+            "commune":licom[i],
+            "electeur":liel[i]
+
+        }
+        print(dic)
+        region.append(dic)
+    print(region)
+
+    return region
 
 
 

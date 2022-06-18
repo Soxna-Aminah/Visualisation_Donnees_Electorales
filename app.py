@@ -1,3 +1,4 @@
+import json
 from flask import Flask, jsonify, render_template,make_response
 from controller.recupdata import *
 
@@ -7,15 +8,15 @@ app=Flask(__name__)
 
 @app.route("/")
 def index():
-    dic={
+    dic = {
         "Macky Sall": 58,
         "Idrissa Seck":20,
         "Ousmane Sonko": 15
     }
     donne=RecupElecteur()
-    elem=recupdepartcomel()
-    print(elem)
-    return render_template('index.html',donne=donne,dic=dic,elem=elem)
+    # elem=recupdepartcomel()
+    # print("************ Print mafé ***********",elem)
+    return render_template('index.html',donne=donne,dic=dic)
 
 
 
@@ -24,15 +25,27 @@ def data():
     data=BureauCom()
     return jsonify(data)
 
+
 @app.route("/nbrcommuneregion")
 def datacom():
     data=RecupNbrCommune()
     return jsonify(data)
 
+
 @app.route("/datalieu")
 def datalieu():
     datalieuvote=recupBureauVote()
     return jsonify(datalieuvote)
+
+
+@app.route('/api/info')
+def getter_info():
+    results = []
+    results = getter_info_controller()
+    return jsonify(results)
+
+
+
 
 @app.errorhandler(404)
 def page_not_found(error):

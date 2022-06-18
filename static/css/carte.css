@@ -19,6 +19,8 @@
     font-family: sans-serif;
     letter-spacing: 1px;
     margin-top: 20px;
+    min-height: 30vh;
+    visibility: hidden;
 }
 
 .divRegionInf h2{
