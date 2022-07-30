@@ -1,0 +1,22 @@
+body{
+    background-color: aqua;
+    height: 890px;
+    width: 90%;
+
+}
+main{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h3{
+    color: red;
+}
+button{
+    color: white;
+    font-size: 20px;
+    background-color: rgb(21, 21, 122);
+    border:2px solid rgb(21, 21, 122);
+}

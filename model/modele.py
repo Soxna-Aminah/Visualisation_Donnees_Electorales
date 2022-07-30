@@ -1,3 +1,4 @@
+from email.policy import default
 import sys
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
@@ -94,6 +95,20 @@ class Lieu_de_Vote(base):
         self.communeId=session.query(Commune).filter(Commune.name_commune==self.name_commune).first().id_commune
         session.add(self)
         session.commit()
+
+
+
+
+
+###################### Classe  Loader##########################
+
+class Loader(base):
+    __tablename__ = "loader"
+    id_loader=Column(Integer,primary_key=True,autoincrement=True)
+    loaded=Column(Boolean,default=False)
+
+    def __init__(self, loaded):
+        self.loaded=loaded
 
 
 base.metadata.create_all(bind=engine)

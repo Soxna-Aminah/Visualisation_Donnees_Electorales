@@ -63,14 +63,12 @@ def traitementdata(li):
 
 
 nliDakar=traitementdata(liDakar)
-# print(nliDakar[0].keys())
 
 nliKaolack=traitementdata(liKaolack)
 nliSaint_Louis=traitementdata(liSaint_Louis)
 nliThies=traitementdata(liThies)
 nliZig=traitementdata(liZig)
 data= {"DAKAR":nliDakar,"KAOLACK":nliKaolack,"SAINT LOUIS":nliSaint_Louis,"THIES":nliThies,"ZIGUINCHOR":nliZig}
-
 
 ###################### Remplissage ###########################################################
 
@@ -79,7 +77,7 @@ def chargerregion(data):
        reg=str(i)
        region=Region(reg)
        region.remplirRegion()
-
+# chargerregion(data)
 
 def chargerdepart(datadepart,region):
     lidepart=[]
@@ -119,7 +117,7 @@ def chargeDonnees(data):
         chargerCom(data[reg])
         chargerLieu(data[reg])
 
-# chargeDonnees(data)
+#chargeDonnees(data)
 ############################################## 
 
 
@@ -134,7 +132,6 @@ def RecupNbrCommune():
             commune+=len(com)
         dic[i.name_region]=commune
     return dic
-
 def BureauCom():
     diccom={}
     commune=session.query(Commune).all()
@@ -154,7 +151,6 @@ def RecupElecteur():
     reg=session.query(Region.name_region,func.sum(Lieu_de_Vote.nombre_electeur)).filter(Region.id_region==Departement.regionId).filter(Departement.id_depart==Commune.departId).filter(Commune.id_commune==Lieu_de_Vote.communeId).group_by(Region.name_region).all()
     for i in reg:
        dic[i[0]]=i[1]
-    # print(dic)   
     return dic
 RecupElecteur()
 
@@ -180,7 +176,6 @@ def recupinforeg():
         for k in regions:
             if j==k[0]:
                 lidp.append(k[1])
-                # print(lidp)
         nrdic[j]=lidp
     return nrdic
 
@@ -198,10 +193,7 @@ def recupdepartcomel():
             "electeur":liel[i]
 
         }
-        print(dic)
         region.append(dic)
-    print(region)
-
     return region
 
 # recupdepartcomel()
@@ -224,9 +216,7 @@ def getter_info_controller():
             "electeur":liel[i]
 
         }
-        print(dic)
         region.append(dic)
-    print(region)
 
     return region
 

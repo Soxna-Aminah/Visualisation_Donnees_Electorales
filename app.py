@@ -1,5 +1,7 @@
-from flask import Flask, jsonify, render_template,make_response
+# from crypt import methods
+from flask import Flask, jsonify, redirect, render_template,make_response
 from controller.recupdata import *
+from controller.recupdata import data as mydata
 
 app=Flask(__name__)
 
@@ -7,15 +9,26 @@ app=Flask(__name__)
 
 @app.route("/")
 def index():
+    return render_template("home.html")
+
+@app.route("/postall",methods=["GET"])
+def post():
+    chargeDonnees(mydata)
+    return redirect("/dashbord")
+    return jsonify({"reponse":"ok"})
+
+   
+
+@app.route("/dashbord")
+def dashbord():
     dic = {
         "Macky Sall": 58,
         "Idrissa Seck":20,
         "Ousmane Sonko": 15
     }
     donne=RecupElecteur()
-    # elem=recupdepartcomel()
-    # print("************ Print mafé ***********",elem)
     return render_template('index.html',donne=donne,dic=dic)
+
 
 
 
