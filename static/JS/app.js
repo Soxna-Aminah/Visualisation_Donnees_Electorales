@@ -16,7 +16,6 @@ var svg = d3
   .attr("width", width)
   .attr("height", height)
   var data=[]
-        
   for(i in text){
      data.push({ Region: i, Nbr:text[i]})
   }
