@@ -1,8 +1,8 @@
-/* *{
+*{
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-} */
+}
 
 
 
@@ -11,7 +11,8 @@
 /* ****************************** */
 
 .divRegionInf{
-    background: rgba(1, 158, 48, 0.8);
+    /* background: rgba(1, 158, 48, 0.8); */
+    background: #202c74;
     color: #fff;
     width: 55%;
     padding: 10px;
@@ -19,7 +20,7 @@
     font-family: sans-serif;
     letter-spacing: 1px;
     margin-top: 20px;
-    min-height: 30vh;
+    min-height: 22vh;
     visibility: hidden;
 }
 
@@ -44,13 +45,15 @@
 }
 
 .carteSn svg path.land.use{
-     fill: rgba(1, 158, 48, 0.8);
+     /* fill: rgba(1, 158, 48, 0.8); */
+     fill: #202c74;
      transition: all ease .3s;
      cursor: pointer;
 }
 
 .carteSn svg path.land.use:hover{
-    fill: rgb(24, 130, 56);
+    /* fill: rgb(24, 130, 56); */
+    fill: #ff648c;
 }
 
 
@@ -101,5 +104,75 @@
 }
 
 .donnestatic p.pAnalyse{
-    font-size: 20px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    line-height: 30px;
+}
+
+
+
+
+/* ********************************************** */
+/* ********* LABEL TEXT DISPLAY NONE *********** */
+/* ******************************************** */
+
+main.mainDashbord{
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.graph{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.graph h4{
+    text-align: center;
+    line-height: 45px;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+
+
+/* ******************* */
+/* **** DIV DOOR **** */
+/* ***************** */
+.divDoor{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+}
+
+.divDoor > img{
+    height: 150px;
+}
+
+.divDoor .author{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.divDoor .author img{
+    width: 100px;
+    height: 100px;
+    background: rgb(134, 124, 134);
+    border-radius: 50%;
+}
+
+.divDoor .author h3{
+    margin: 10px 0;
+    color: orangered;
+    letter-spacing: 1px;
+}
+
+.divDoor .author p{
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    height: 50px;
 }

@@ -98,6 +98,8 @@ def chargerCom(data):
             commune=Commune(com,depart)
             commune.remplissageCom()
 
+
+
 def chargerLieu(data):
     lilieu=[]
     for i in data:
@@ -106,6 +108,17 @@ def chargerLieu(data):
             lilieu.append(lieu)
             lieuVote=Lieu_de_Vote(lieu,i["Commune"],i["Nombre electeur"])
             lieuVote.RemplirLieu()
+
+
+
+
+def updateLoader(data):
+  
+    loader = Loader(True)
+    loader.RemplirLoader()
+         
+
+
 
 def chargeDonnees(data):
     chargerregion(data)
@@ -127,6 +140,8 @@ def RecupNbrCommune():
     return dic
 
 
+
+
 def BureauCom():
     diccom={}
     com=session.query(Commune.name_commune,func.count(Lieu_de_Vote.id_lieu)).filter(Region.id_region==Departement.regionId).filter(Departement.id_depart==Commune.departId).filter(Commune.id_commune==Lieu_de_Vote.communeId).group_by(Commune.name_commune).all()
@@ -144,7 +159,10 @@ def RecupElecteur():
     for i in reg:
        dic[i[0]]=i[1]
     return dic
-RecupElecteur()
+# RecupElecteur()
+
+
+
 
 def recupBureauVote():
     diclieu={}
@@ -154,6 +172,9 @@ def recupBureauVote():
         if len(diclieu)<10:
             diclieu[i[0]]=i[1]
     return diclieu
+
+
+
 
 def recupinforeg():
     nrdic={}
@@ -170,6 +191,9 @@ def recupinforeg():
                 lidp.append(k[1])
         nrdic[j]=lidp
     return nrdic
+
+
+
 
 def recupdepartcomel():
     liregdep = recupinforeg()
@@ -188,8 +212,6 @@ def recupdepartcomel():
         region.append(dic)
     return region
     
-
-
 
 
 def getter_info_controller():

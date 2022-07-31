@@ -1,0 +1,48 @@
+*{
+    padding: O;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+
+.container404{
+    /* background: orange; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+.container404 img{
+    width: 50%;
+}
+
+.divNotFound{
+    margin-top: -15vh;
+}
+
+.divNotFound h1{
+    font-size: 50px;
+    font-weight: bold;
+    color: #000 !important;
+    opacity: 1;
+    margin: 10px 0;
+}
+
+.divNotFound p, .divNotFound a{
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.divNotFound p{
+    margin-bottom: 25px;
+}
+
+.divNotFound a{
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: orangered;
+}
