@@ -107,6 +107,12 @@ def chargerLieu(data):
             lieuVote=Lieu_de_Vote(lieu,i["Commune"],i["Nombre electeur"])
             lieuVote.RemplirLieu()
 
+def updateLoader(data):
+  
+    loader = Loader(True)
+    loader.RemplirLoader()
+         
+
 def chargeDonnees(data):
     chargerregion(data)
     for i in data:
@@ -144,7 +150,7 @@ def RecupElecteur():
     for i in reg:
        dic[i[0]]=i[1]
     return dic
-RecupElecteur()
+# RecupElecteur()
 
 def recupBureauVote():
     diclieu={}

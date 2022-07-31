@@ -14,7 +14,6 @@ def index():
 def post():
     chargeDonnees(mydata)
     return redirect("/dashbord")
-    return jsonify({"reponse":"ok"})
 
    
 

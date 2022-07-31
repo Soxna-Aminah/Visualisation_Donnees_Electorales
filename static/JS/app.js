@@ -10,7 +10,8 @@ fetch('/nbrcommuneregion')
     let width = 570, height = 400
     let data=[]
 
-    let couleur = d3.scaleOrdinal(["#035397","#F10086","#00FFC6","#F0A500","#FF6161"])
+    // let couleur = d3.scaleOrdinal(["#035397","#F10086","#00FFC6","#F0A500","#FF6161"])
+    let couleur = d3.scaleOrdinal([ "#ff648c", "#b064f4", "#ffcc64", "#5ca4f4", "#202c74"])
     let svg = d3.select(".regparcom")
         .append("svg")
         .attr("width", width)
@@ -113,7 +114,8 @@ fetch('/bureaucom')
       data.push({ Commune: i, Nbr:text[i]})
     }
 
-    let couleur = d3.scaleOrdinal(["#2F8F9D","#EB5353"," #5F7161","#F9D923","#541690","#F66B0E","#035397","#00FFC6","#DFDFDE","#05595B"]); 
+    // let couleur = d3.scaleOrdinal(["#2F8F9D","#EB5353"," #5F7161","#F9D923","#541690","#F66B0E","#035397","#00FFC6","#DFDFDE","#05595B"]); 
+    let couleur = d3.scaleOrdinal([ "#202c74"]); 
 
     const svg = d3.select('.nombrelieu')
       .append('svg')
@@ -193,7 +195,8 @@ fetch('/datalieu')
     }
 
 
-    let couleur = d3.scaleOrdinal(["#B89E09","#FF7824"," #7315E6","#18F2BB","#7D2A19","#151D5C","#F6CD36","#6226E3","#B5B74E","#993487"]); 
+    // let couleur = d3.scaleOrdinal(["#B89E09","#FF7824"," #7315E6","#18F2BB","#7D2A19","#151D5C","#F6CD36","#6226E3","#B5B74E","#993487"]); 
+    let couleur = d3.scaleOrdinal([ "orangered"]); 
     const svg = d3.select('.top10bureau')
       .append('svg')
       .attr('width', width )

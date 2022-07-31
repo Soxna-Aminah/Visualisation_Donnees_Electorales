@@ -104,12 +104,16 @@ class Lieu_de_Vote(base):
 
 class Loader(base):
     __tablename__ = "loader"
-    id_loader=Column(Integer,primary_key=True,autoincrement=True)
-    loaded=Column(Boolean,default=False)
+    id_loader = Column(Integer,primary_key=True,autoincrement=True)
+    loaded = Column(Boolean,default=False)
 
     def __init__(self, loaded):
         self.loaded=loaded
 
+    def RemplirLoader(self):
+        session.add(self)
+        session.commit()
+        session.close()
 
 base.metadata.create_all(bind=engine)
 
