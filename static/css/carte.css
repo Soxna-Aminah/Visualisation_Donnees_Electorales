@@ -110,37 +110,8 @@
 /* ********************************************** */
 /* ********* LABEL TEXT DISPLAY NONE *********** */
 /* ******************************************** */
-.regparcom{
-    background: pink;
-}
-
-.top10bureau{
-    background: chartreuse;
-}
-
-.nombrelieu{
-    background: rgb(14, 206, 190);
-}
-
-.nombrelect{
-    background: rgb(161, 115, 247);
-}
-
-.classement{
-    background: rgb(255, 223, 81);
-}
-
-
-.gauche{
-    background: rgb(81, 235, 255) !important;
-}
-
-.droite{
-    background: rgb(249, 81, 255) !important;
-}
 
 main.mainDashbord{
-    background: #F05 !important;
     justify-content: space-between;
     padding: 5px;
 }
@@ -163,7 +134,6 @@ main.mainDashbord{
 /* **** DIV DOOR **** */
 /* ***************** */
 .divDoor{
-    background-color: yellow;
     display: flex;
     justify-content: space-evenly;
     padding: 10px 0;
@@ -174,7 +144,6 @@ main.mainDashbord{
 }
 
 .divDoor .author{
-    background: palegreen;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -186,7 +155,7 @@ main.mainDashbord{
 .divDoor .author img{
     width: 100px;
     height: 100px;
-    background: violet;
+    background: rgb(134, 124, 134);
     border-radius: 50%;
 }
 
@@ -201,5 +170,4 @@ main.mainDashbord{
     line-height: 20px;
     letter-spacing: 1px;
     height: 50px;
-    background-color: aquamarine;
 }
