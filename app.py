@@ -1,4 +1,3 @@
-# from crypt import methods
 from flask import Flask, jsonify, redirect, render_template,make_response
 from controller.recupdata import *
 from controller.recupdata import data as mydata
@@ -11,7 +10,7 @@ app=Flask(__name__)
 def index():
     return render_template("home.html")
 
-@app.route("/postall",methods=["GET"])
+@app.route("/load",methods=["GET"])
 def post():
     chargeDonnees(mydata)
     return redirect("/dashbord")

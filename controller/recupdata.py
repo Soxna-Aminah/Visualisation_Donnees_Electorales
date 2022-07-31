@@ -171,6 +171,9 @@ def recupinforeg():
         nrdic[j]=lidp
     return nrdic
 
+
+
+
 def recupdepartcomel():
     liregdep = recupinforeg()
     licom = RecupNbrCommune()

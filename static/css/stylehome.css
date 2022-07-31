@@ -1,22 +1,157 @@
-body{
-    background-color: aqua;
-    height: 890px;
-    width: 90%;
-
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    text-decoration: none;
 }
-main{
-    height: 90%;
+
+
+.divDefaultContainer{
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
 }
-h3{
-    color: red;
+
+
+main{
+    flex: 1;
+    background: url('./../img/vote.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100vh;
 }
-button{
+
+aside{
+    flex: 1;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+aside div.circle{
+    background:  rgb(8, 8, 201);
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0% 0 100%;
+    animation:changecolor 20s infinite;
+
+}
+
+aside div.carre{
+    background:  rgb(8, 8, 201);
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    border-radius: 5px;
+    transition: all ease .3s;
+}
+
+aside div.c1{
+    bottom: 4vh;
+    left: 10vw;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 60s linear infinite;
+
+
+}
+
+aside div.c2{
+    background:  rgb(199, 54, 243);
+    height: 200px;
+    width: 200px;
+    bottom: 20vh;
+    right: 10vw;
+    animation: ratation1 infinite 20s;
+
+
+}
+
+
+@keyframes ratation1 {
+    0%{
+        transform: translateX(-150px);
+        transform: translateY(20px);
+
+    }
+    15%{
+        transform: translateX(-50px);
+    }
+
+    30%{
+        transform: translateX(50px);
+        transform: translateY(50px);
+    }
+
+    45%{
+        transform: translateX(150px);
+    }
+
+    60%{
+        transform: translateX(50px);
+        transform: translateY(50px);
+    }
+
+    75%{
+        transform: translateX(-50px);
+    }
+
+    100%{
+        transform: translateX(-150px);
+        transform: translateY(20px);
+
+    }
+}
+
+
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@keyframes changecolor {
+    0%{
+        background: rgb(8, 8, 201);
+    }
+
+    50%{
+        background: rgb(252, 169, 15);
+    }
+
+    100%{
+        background: rgb(227, 25, 245);
+    }
+}
+
+.divInf h3{
+    color: red;
+    font-size: 45px;
+}
+
+.divInf p{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.divInf a{
     color: white;
     font-size: 20px;
     background-color: rgb(21, 21, 122);
-    border:2px solid rgb(21, 21, 122);
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    transition: all ease .3s;
+    cursor: pointer;
+}
+
+.divInf a:hover{
+    color: white;
+    background-color: rgb(47, 47, 236);
 }

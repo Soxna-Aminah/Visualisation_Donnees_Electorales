@@ -1,8 +1,8 @@
-/* *{
+*{
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-} */
+}
 
 
 
@@ -19,7 +19,7 @@
     font-family: sans-serif;
     letter-spacing: 1px;
     margin-top: 20px;
-    min-height: 30vh;
+    min-height: 22vh;
     visibility: hidden;
 }
 
@@ -102,4 +102,104 @@
 
 .donnestatic p.pAnalyse{
     font-size: 20px;
+}
+
+
+
+
+/* ********************************************** */
+/* ********* LABEL TEXT DISPLAY NONE *********** */
+/* ******************************************** */
+.regparcom{
+    background: pink;
+}
+
+.top10bureau{
+    background: chartreuse;
+}
+
+.nombrelieu{
+    background: rgb(14, 206, 190);
+}
+
+.nombrelect{
+    background: rgb(161, 115, 247);
+}
+
+.classement{
+    background: rgb(255, 223, 81);
+}
+
+
+.gauche{
+    background: rgb(81, 235, 255) !important;
+}
+
+.droite{
+    background: rgb(249, 81, 255) !important;
+}
+
+main.mainDashbord{
+    background: #F05 !important;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.graph{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.graph h4{
+    text-align: center;
+    line-height: 45px;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+
+
+/* ******************* */
+/* **** DIV DOOR **** */
+/* ***************** */
+.divDoor{
+    background-color: yellow;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+}
+
+.divDoor > img{
+    height: 150px;
+}
+
+.divDoor .author{
+    background: palegreen;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.divDoor .author img{
+    width: 100px;
+    height: 100px;
+    background: violet;
+    border-radius: 50%;
+}
+
+.divDoor .author h3{
+    margin: 10px 0;
+    color: orangered;
+    letter-spacing: 1px;
+}
+
+.divDoor .author p{
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    height: 50px;
+    background-color: aquamarine;
 }
