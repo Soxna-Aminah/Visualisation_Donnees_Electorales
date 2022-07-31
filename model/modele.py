@@ -11,22 +11,22 @@ sys.path.append("..")
 
 ########################Engine########################
 
-engine=create_engine('postgresql://challenge:passer123@localhost:5432/donnees_elections')
-base_session=sessionmaker(bind=engine,autocommit=False,autoflush=False)
-session=base_session()
-base=declarative_base()
+engine = create_engine('postgresql://challenge:passer123@localhost:5432/donnees_elections')
+base_session = sessionmaker(bind=engine,autocommit=False,autoflush=False)
+session = base_session()
+base = declarative_base()
 
 
 ######################Classe Region############################
 class Region(base):
     __tablename__='regions'
-    id_region=Column(Integer,primary_key=True,autoincrement=True)
-    name_region=Column(String(50))
-    departement=relationship("Departement")
+    id_region = Column(Integer, primary_key = True, autoincrement = True)
+    name_region = Column(String(50))
+    departement = relationship("Departement")
 
 
     def __init__(self,name_region):
-        self.name_region=name_region
+        self.name_region = name_region
 
     def remplirRegion(self):
             session.add(self)
@@ -37,18 +37,18 @@ class Region(base):
 ######################Classe Departement############################
 
 class Departement(base):
-    __tablename__='departement'
-    id_depart=Column(Integer,primary_key=True)
-    regionId=Column(Integer,ForeignKey('regions.id_region'))
-    name_depart=Column(String(100))
-    commune=relationship('Commune')
+    __tablename__ = 'departement'
+    id_depart = Column(Integer,primary_key=True)
+    regionId = Column(Integer,ForeignKey('regions.id_region'))
+    name_depart = Column(String(100))
+    commune = relationship('Commune')
 
     def __init__(self,name_depart ,name_region):
-        self.name_depart=name_depart
-        self.name_region=name_region
+        self.name_depart = name_depart
+        self.name_region = name_region
 
     def remplissageDepart(self):
-        self.regionId=session.query(Region).filter(Region.name_region==self.name_region).first().id_region
+        self.regionId = session.query(Region).filter(Region.name_region == self.name_region).first().id_region
         session.add(self)
         session.commit()
                
@@ -111,9 +111,29 @@ class Loader(base):
         self.loaded=loaded
 
     def RemplirLoader(self):
+        print("mafé")
         session.add(self)
         session.commit()
         session.close()
+
+
+def get_loader_status():
+    return session.query(Loader).first()
+
+def get_loaders():
+    return session.query(Loader).all()
+
+
+def update_loader_status():
+    session.query(Loader).filter(Loader.id_loader == 1).update({Loader.loaded : True})
+    session.commit()
+    session.close()
+
+
+def create_loader_status():
+    state = Loader(False)
+    state.RemplirLoader()
+
 
 base.metadata.create_all(bind=engine)
 

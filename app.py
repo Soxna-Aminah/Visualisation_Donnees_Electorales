@@ -1,35 +1,39 @@
 from flask import Flask, jsonify, redirect, render_template,make_response
 from controller.recupdata import *
 from controller.recupdata import data as mydata
+from model.modele import get_loader_status, update_loader_status, create_loader_status, get_loaders
 
-app=Flask(__name__)
+app = Flask(__name__)
+
 
 
 
 @app.route("/")
 def index():
-    return render_template("home.html")
+    load = get_loaders()
+    print("Tous les loads : ", load)
+    if len(load) > 0 and get_loader_status().loaded:
+        dic = {
+            "Macky Sall": 58,
+            "Idrissa Seck":20,
+            "Ousmane Sonko": 15
+        }
+        donne=RecupElecteur()
+        return render_template('index.html',donne=donne,dic=dic)
+    
+    else:
+        
+        return render_template("home.html")
+        
+
 
 @app.route("/load",methods=["GET"])
 def post():
     chargeDonnees(mydata)
-    return redirect("/dashbord")
+    update_loader_status()
+    return redirect("/")
 
    
-
-@app.route("/dashbord")
-def dashbord():
-    dic = {
-        "Macky Sall": 58,
-        "Idrissa Seck":20,
-        "Ousmane Sonko": 15
-    }
-    donne=RecupElecteur()
-    return render_template('index.html',donne=donne,dic=dic)
-
-
-
-
 @app.route("/bureaucom")
 def data():
     data=BureauCom()
@@ -66,4 +70,8 @@ def page_not_found(error):
 
 
 if __name__=='__main__':
+    
+    if len(get_loaders()) == 0:
+        create_loader_status()
+
     app.run(debug=True) 
