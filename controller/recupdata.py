@@ -2,7 +2,6 @@ import csv
 import sys
 sys.path.append(".")
 sys.path.append("..")
-# sys.path.append("../model")
 
 from model.modele import *
 
@@ -33,7 +32,6 @@ liZig=lecteurcsv(chemin5)
 
 
 ###################Fonction de traitement###############################
-
 def traitementdata(li):
     n=0
     nli=[]
@@ -123,28 +121,22 @@ def chargeDonnees(data):
 
 def RecupNbrCommune():
     dic={}
-    reg=session.query(Region).all()
-    for i in reg:
-        commune=0
-        depart=session.query(Departement).filter(Departement.regionId==i.id_region).all()
-        for k in depart:
-            com=session.query(Commune).filter(Commune.departId==k.id_depart).all()
-            commune+=len(com)
-        dic[i.name_region]=commune
+    com=session.query(Region.name_region,func.count(Commune.id_commune)).filter(Region.id_region==Departement.regionId).filter(Departement.id_depart==Commune.departId).group_by(Region.name_region).all()
+    for i in com:
+       dic[i[0]]=i[1]
     return dic
+
+
 def BureauCom():
     diccom={}
-    commune=session.query(Commune).all()
-    for i in commune:
-                lieuv=0
-                lieu=session.query(Lieu_de_Vote).filter(Lieu_de_Vote.communeId==i.id_commune).all()
-                lieuv+=len(lieu)
-                diccom[i.name_commune]=lieuv
-    ndicom={}
+    com=session.query(Commune.name_commune,func.count(Lieu_de_Vote.id_lieu)).filter(Region.id_region==Departement.regionId).filter(Departement.id_depart==Commune.departId).filter(Commune.id_commune==Lieu_de_Vote.communeId).group_by(Commune.name_commune).all()
+    for i in com:
+       diccom[i[0]]=i[1]
     for k, v in sorted(diccom.items(), key=lambda x: x[1],reverse=True):
-        if len(ndicom) <10:
-              ndicom[k]=v
-    return ndicom
+        if len(diccom) <10:
+              diccom[k]=v
+    return diccom
+
 
 def RecupElecteur():
     dic={}
@@ -195,8 +187,6 @@ def recupdepartcomel():
         }
         region.append(dic)
     return region
-
-# recupdepartcomel()
     
 
 
@@ -222,11 +212,7 @@ def getter_info_controller():
 
 
 
-    
 
-
-# remplirRegion(data)
-# remplissageDepart(data)
 
 
 
