@@ -14,17 +14,32 @@
 
 
 
-
-
 {% endblock%}
 
 {% block content %}
-<main>
+<main class="mainDashbord">
     <div class="gauche">
-        <div class="regparcom"></div>
-        <div class="top10bureau"></div>
+        <div class="regparcom graph">
+            <h4 class="title">Diagramme circulaire de la répartition des Communes par Région</h4>
+        </div>
+        <div class="top10bureau graph">
+            <h4 class="title">Top 10 des lieux de votes</h4>
+        </div>
+        <div class="divDoor">
+            <img src="{{url_for('static', filename='img/logo.png')}}" alt="Sonatel Academy">
+            <div class="author">
+                <img src="{{url_for('static', filename='img/aminah.jpeg')}}" alt="DakarScript">
+                <h3>Amy FALL</h3>
+                <p>Junior Dev Data</p>
+            </div>
+            <div class="author">
+                <img src="{{url_for('static', filename='img/sonko.png')}}" alt="DakarScript">
+                <h3>Alpha A DIALLO</h3>
+                <p>FullStack Dev |<br> Junior Dev Data</p>
+            </div>
+        </div>
     </div>
-    <div class="milieu">
+    <div class="milieu" >
         <div class="carteSn">
             
             <div class="divRegionInf"></div>
@@ -74,15 +89,18 @@
             </p>
         </div>
     </div>
+
     <div class="droite">
-        <div class="nombrelieu"></div>
+        <div class="nombrelieu graph">
+            <h4 class="title">Diagramme en barre des lieux de votes par commune (Top 10)</h4>
+        </div>
         <div class="nombrelect">
             {% for i in donne %}
             <div class="sdiv">
                 <div class="personIcons">
                     <div>
                     {% for i in range(3) %}
-                        <img src="../static/img/bonhom.jpeg" alt="" srcset="">
+                        <img src="{{url_for('static', filename='img/bonhom.png')}}" alt="bon homme">
                     {% endfor %}
                     </div>
                 </div>
@@ -100,7 +118,7 @@
 
             <div class="candidatItem">
                 <div class="candidatImage"> 
-                    <img src="../static/img/macky.jpeg" alt="" srcset="">
+                    <img src="{{url_for('static', filename='img/macky.png')}}" alt="Macky Sall">
                 </div>
 
                 <div class="divInfos">
@@ -113,7 +131,7 @@
 
             <div class="candidatItem">
                 <div class="candidatImage">
-                    <img src="../static/img/idi.jpeg" alt="">
+                    <img src="{{url_for('static', filename='img/idi.png')}}" alt="Idrissa Seck">
                 </div>
 
                 <div class="divInfos">
@@ -126,7 +144,7 @@
 
             <div class="candidatItem">
                 <div class="candidatImage">
-                    <img src="../static/img/sonko.jpeg" alt="">
+                    <img src="{{url_for('static', filename='img/sonko.png')}}" alt="Ousamane Sonko">
                 </div>
 
                 <div class="divInfos">
