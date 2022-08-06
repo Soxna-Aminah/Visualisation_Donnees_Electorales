@@ -31,6 +31,7 @@ for(let use of uses){
         let elementTitle = element.getAttribute('title')
 
         let response = await fetch('/api/info')
+        console.log(response);
         let data = await response.json()
 
         data = data.filter(region => region.region === elementTitle)

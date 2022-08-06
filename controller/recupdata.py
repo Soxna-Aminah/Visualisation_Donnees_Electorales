@@ -228,7 +228,7 @@ def getter_info_controller():
         region.append(dic)
 
     return region
-
+# print(getter_info_controller())
 
 
 
