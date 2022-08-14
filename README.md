@@ -1,5 +1,8 @@
-# Visualisation des Données Electorales
-## 1°) Presentation 
+# **Visualisation des Données Electorales**
+
+![Techno uses](./static/img/capture.png)
+
+## **1°) Presentation** 
 
 Nous avons pris les données electorales de l'election présidentiels 2019 des 5 regions : **DAKAR** , **THIES** , **KAOLACK** , **SAINT LOUIS** et **ZIGUINCHOR**<br>
 Chaque région ses différents **départements** , ses **communes**, ses **lieux de votes**.<br>
@@ -11,12 +14,12 @@ De ce fait nous avons essayer de présenter : <br>
 - ### Le nombre total d'electeurs pour chaque région
 - ### Le pourcentage du TOP  3 des candidats 
 
-## 2°)Outils Necessaire
+## **2°)Outils Necessaire**
 
 Pour executer ce projet vous devriez installer **POSTGRES** , créer une base de données : avec commne nom **donnees_elections**, et un nom d'utilisateur **challenge**<br>
 Ensuite executer le fichier **requirement.txt**
 
-## 3°) Autre Précisions
+## **3°) Autre Précisions**
 
 Au premier execution une page d'acceuil sera afficher qui va permetre de charger les donnees dans la base .<br>
 Aprées cela la page de Visuialisation s'affichera<br>
